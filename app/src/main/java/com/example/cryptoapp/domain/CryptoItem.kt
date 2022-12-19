@@ -1,4 +1,4 @@
-package com.example.cryptoapp.data
+package com.example.cryptoapp.domain
 
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.Expose
