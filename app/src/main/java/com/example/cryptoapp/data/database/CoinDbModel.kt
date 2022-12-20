@@ -7,19 +7,12 @@ import androidx.room.PrimaryKey
 data class CoinDbModel (
 
     @PrimaryKey
-    var fromsymbol: String,
-
-    var tosymbol: String?,
-
-    var price: String?,
-
-    var lastupdate: String?,
-
-    var highday: String?,
-
-    var lowday: String?,
-
-    var lastmarket: String?,
-
-    var imageurl: String?
+    val fromSymbol: String,
+    val toSymbol: String?,
+    val price: String?,
+    val lastUpdate: Long?,
+    val highDay: String?,
+    val lowDay: String?,
+    val lastMarket: String?,
+    val imageUrl: String
 )

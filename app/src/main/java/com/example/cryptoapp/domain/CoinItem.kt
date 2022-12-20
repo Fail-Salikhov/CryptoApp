@@ -8,7 +8,7 @@ data class CoinItem(
 
     var price: String?,
 
-    var lastupdate: String?,
+    var lastupdate: String,
 
     var highday: String?,
 
@@ -16,6 +16,6 @@ data class CoinItem(
 
     var lastmarket: String?,
 
-    var imageurl: String?
+    var imageurl: String
 ) {
 }

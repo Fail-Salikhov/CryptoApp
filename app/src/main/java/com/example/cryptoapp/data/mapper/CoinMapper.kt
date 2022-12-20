@@ -4,22 +4,24 @@ import android.util.Log
 import com.example.cryptoapp.data.database.CoinDbModel
 import com.example.cryptoapp.domain.CoinItem
 import com.google.gson.Gson
-import pojo.CoinInfoData
 import pojo.CoinInfoJsonContainerDTO
 import pojo.CoinInfoDto
 import pojo.CoinNamesListDto
+import java.sql.Timestamp
+import java.text.SimpleDateFormat
+import java.util.*
 
 class CoinMapper {
 
     fun mapDtoToDbModel(dto: CoinInfoDto) = CoinDbModel(
-        fromsymbol = dto.fromsymbol,
-        tosymbol = dto.tosymbol,
+        fromSymbol = dto.fromSymbol,
+        toSymbol = dto.toSymbol,
         price = dto.price,
-        lastupdate = dto.lastupdate,
-        highday = dto.highday,
-        lowday = dto.lowday,
-        lastmarket = dto.lastmarket,
-        imageurl = dto.imageurl
+        lastUpdate = dto.lastUpdate,
+        highDay = dto.highDay,
+        lowDay = dto.lowDay,
+        lastMarket = dto.lastMarket,
+        imageUrl = BASE_URL_IMAGE + dto.imageUrl
     )
 
     fun mapJsonContainerToListCoinInfo (jsonContainerDTO: CoinInfoJsonContainerDTO) : List<CoinInfoDto> {
@@ -44,13 +46,27 @@ class CoinMapper {
     }
 
     fun mapDbModelToEntity (dbModel: CoinDbModel) = CoinItem (
-        fromsymbol = dbModel.fromsymbol,
-        tosymbol = dbModel.tosymbol,
+        fromsymbol = dbModel.fromSymbol,
+        tosymbol = dbModel.toSymbol,
         price = dbModel.price,
-        lastupdate = dbModel.lastupdate,
-        highday= dbModel.highday,
-        lowday = dbModel.lowday,
-        lastmarket = dbModel.lastmarket,
-        imageurl = dbModel.imageurl
+        lastupdate = convertTimestampToTime(dbModel.lastUpdate),
+        highday = dbModel.highDay,
+        lowday = dbModel.lowDay,
+        lastmarket = dbModel.lastMarket,
+        imageurl = dbModel.imageUrl
     )
+
+    private  fun convertTimestampToTime(timestamp: Long?): String {
+        if (timestamp == null) return ""
+        val stamp = Timestamp(timestamp * 1000)
+        val date = Date(stamp.time)
+        val pattern = "HH:mm:ss"
+        val sdf = SimpleDateFormat(pattern, Locale.getDefault())
+        sdf.timeZone = TimeZone.getDefault()
+        return sdf.format(date)
+    }
+
+    companion object {
+        const val BASE_URL_IMAGE = "https://cryptocompare.com"
+    }
 }
