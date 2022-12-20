@@ -1,6 +1,7 @@
 package com.example.cryptoapp
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.cryptoapp.data.repositori.CryptoRepositoryImpl
@@ -24,7 +25,6 @@ class CoinViewModel(application: Application) : AndroidViewModel(application) {
     init {
         viewModelScope.launch {
             loadDataUseCase()
-
         }
     }
 }

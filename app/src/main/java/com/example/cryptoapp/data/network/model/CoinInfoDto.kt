@@ -12,189 +12,119 @@ data class CoinInfoDto (
     @SerializedName("TYPE")
     @Expose
     val type: String?,
-
     @SerializedName("MARKET")
     @Expose
     val market: String?,
-
     @PrimaryKey
     @SerializedName("FROMSYMBOL")
     @Expose
-    val fromsymbol: String,
-
+    val fromSymbol: String,
     @SerializedName("TOSYMBOL")
     @Expose
-    val tosymbol: String?,
-
+    val toSymbol: String?,
     @SerializedName("FLAGS")
     @Expose
     val flags: String?,
-
     @SerializedName("PRICE")
     @Expose
     val price: String?,
-
     @SerializedName("LASTUPDATE")
     @Expose
-    val lastupdate: String?,
-
-    @SerializedName("MEDIAN")
-    @Expose
-    val median: String?,
-
+    val lastUpdate: Long?,
     @SerializedName("LASTVOLUME")
     @Expose
-    val lastvolume: String?,
-
+    val lastVolume: String?,
     @SerializedName("LASTVOLUMETO")
     @Expose
-    val lastvolumeto: String?,
-
+    val lastVolumeTo: String?,
     @SerializedName("LASTTRADEID")
     @Expose
-    val lasttradeid: String?,
-
+    val lastTradeId: String?,
     @SerializedName("VOLUMEDAY")
     @Expose
-    val volumeday: String?,
-
+    val volumeDay: String?,
     @SerializedName("VOLUMEDAYTO")
     @Expose
-    val volumedayto: String?,
-
+    val volumeDayTo: String?,
     @SerializedName("VOLUME24HOUR")
     @Expose
-    val volume24hour: String?,
-
+    val volume24Hour: String?,
     @SerializedName("VOLUME24HOURTO")
     @Expose
-    val volume24hourto: String?,
-
+    val volume24HourTo: String?,
     @SerializedName("OPENDAY")
     @Expose
-    val openday: String?,
-
+    val openDay: String?,
     @SerializedName("HIGHDAY")
     @Expose
-    val highday: String?,
-
+    val highDay: String?,
     @SerializedName("LOWDAY")
     @Expose
-    val lowday: String?,
-
+    val lowDay: String?,
     @SerializedName("OPEN24HOUR")
     @Expose
-    val open24hour: String?,
-
+    val open24Hour: String?,
     @SerializedName("HIGH24HOUR")
     @Expose
-    val high24hour: String?,
-
+    val high24Hour: String?,
     @SerializedName("LOW24HOUR")
     @Expose
-    val low24hour: String?,
-
+    val low24Hour: String?,
     @SerializedName("LASTMARKET")
     @Expose
-    val lastmarket: String?,
-
+    val lastMarket: String?,
     @SerializedName("VOLUMEHOUR")
     @Expose
-    val volumehour: String?,
-
+    val volumeHour: String?,
     @SerializedName("VOLUMEHOURTO")
     @Expose
-    val volumehourto: String?,
-
+    val volumeHourTo: String?,
     @SerializedName("OPENHOUR")
     @Expose
-    val openhour: String?,
-
+    val openHour: String?,
     @SerializedName("HIGHHOUR")
     @Expose
-    val highhour: String?,
-
+    val highHour: String?,
     @SerializedName("LOWHOUR")
     @Expose
-    val lowhour: String?,
-
+    val lowHour: String?,
     @SerializedName("TOPTIERVOLUME24HOUR")
     @Expose
-    val toptiervolume24hour: String?,
-
+    val topTierVolume24Hour: String?,
     @SerializedName("TOPTIERVOLUME24HOURTO")
     @Expose
-    val toptiervolume24hourto: String?,
-
+    val topTierVolume24HourTo: String?,
     @SerializedName("CHANGE24HOUR")
     @Expose
-    val change24hour: String?,
-
+    val change24Hour: String?,
     @SerializedName("CHANGEPCT24HOUR")
     @Expose
-    val changepct24hour: String?,
-
+    val changePCT24Hour: String?,
     @SerializedName("CHANGEDAY")
     @Expose
-    val changeday: String?,
-
+    val changeDay: String?,
     @SerializedName("CHANGEPCTDAY")
     @Expose
-    val changepctday: String?,
-
-    @SerializedName("CHANGEHOUR")
-    @Expose
-    val changehour: String?,
-
-    @SerializedName("CHANGEPCTHOUR")
-    @Expose
-    val changepcthour: String?,
-
-    @SerializedName("CONVERSIONTYPE")
-    @Expose
-    val conversiontype: String?,
-
-    @SerializedName("CONVERSIONSYMBOL")
-    @Expose
-    val conversionsymbol: String?,
-
+    val changePCTDay: String?,
     @SerializedName("SUPPLY")
     @Expose
     val supply: String?,
-
     @SerializedName("MKTCAP")
     @Expose
-    val mktcap: String?,
-
-    @SerializedName("MKTCAPPENALTY")
-    @Expose
-    val mktcappenalty: String?,
-
-    @SerializedName("CIRCULATINGSUPPLY")
-    @Expose
-    val circulatingsupply: String?,
-
-    @SerializedName("CIRCULATINGSUPPLYMKTCAP")
-    @Expose
-    val circulatingsupplymktcap: String?,
-
+    val mktCap: String?,
     @SerializedName("TOTALVOLUME24H")
     @Expose
-    val totalvolume24h: String?,
-
+    val totalVolume24Hour: String?,
     @SerializedName("TOTALVOLUME24HTO")
     @Expose
-    val totalvolume24hto: String?,
-
+    val totalVolume24HourTo: String?,
     @SerializedName("TOTALTOPTIERVOLUME24H")
     @Expose
-    val totaltoptiervolume24h: String?,
-
+    val totalTopTierVolume24Hour: String?,
     @SerializedName("TOTALTOPTIERVOLUME24HTO")
     @Expose
-    val totaltoptiervolume24hto: String?,
-
+    val totalTopTierVolume24HourTo: String?,
     @SerializedName("IMAGEURL")
     @Expose
-    val imageurl: String?
+    val imageUrl: String?
 )

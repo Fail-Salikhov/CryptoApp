@@ -5,7 +5,7 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 data class CoinInfoJsonContainerDTO (
-    @SerializedName("DISPLAY")
+    @SerializedName("RAW")
     @Expose
     val jsonObject: JsonObject? = null
 )

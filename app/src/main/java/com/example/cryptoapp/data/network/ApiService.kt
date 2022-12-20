@@ -14,12 +14,6 @@ interface ApiService {
         @Query(QUERY_PARAM_TO_SYMBOL) tSym : String = CURRENCY
     ): CoinNamesListDto
 
-//    @GET("pricemultifull")
-//    fun getFullPriceList (
-//        @Query(QUERY_PARAM_API_KEY) apiKey : String = "dba3e4fc18aa12a921784c28daa091181ac3582c32733fdba6b94c4c30fff07e",
-//        @Query(QUERY_PARAM_FROM_SYMBOL) fSyms : String ="BTC",
-//        @Query(QUERY_PARAM_TO_SYMBOLS) tSyms : String = CURRENCY
-//        ) : Single <CoinInfoData>
 
     @GET("pricemultifull")
     suspend fun getFullPriceListJSON (
