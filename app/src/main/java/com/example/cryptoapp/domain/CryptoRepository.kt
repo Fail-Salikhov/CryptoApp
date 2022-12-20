@@ -8,5 +8,5 @@ interface CryptoRepository {
 
     fun getCryptoItem (fromSymbol: String) : LiveData<CoinItem>
 
-    suspend fun loadData()
+    fun loadData()
 }
