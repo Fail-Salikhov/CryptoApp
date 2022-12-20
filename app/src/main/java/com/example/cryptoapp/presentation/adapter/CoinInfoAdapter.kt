@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptoapp.R
 import com.example.cryptoapp.data.network.ApiFactory.BASE_URL_IMAGE
@@ -13,13 +14,8 @@ import com.example.cryptoapp.domain.CoinItem
 import com.squareup.picasso.Picasso
 
 
-class CoinInfoAdapter(private val context: Context) : RecyclerView.Adapter<CoinInfoAdapter.CoinIfoViewHolder>() {
+class CoinInfoAdapter(private val context: Context): ListAdapter<CoinItem, CoinInfoAdapter.CoinIfoViewHolder>(CoinInfoDiffCallback) {
 
-    var coinInfoList : List<CoinItem> = listOf()
-    set(value) {
-        field = value
-        notifyDataSetChanged()
-    }
 
     var onCoinClickListener: OnCoinClickListener? = null
 
@@ -29,7 +25,7 @@ class CoinInfoAdapter(private val context: Context) : RecyclerView.Adapter<CoinI
     }
 
     override fun onBindViewHolder(holder: CoinIfoViewHolder, position: Int) {
-        val coin = coinInfoList[position]
+        val coin = getItem(position)
         when{
             coin.fromsymbol == "Ξ" -> holder.tvSymbols.text = "ETH" + "/" + coin.tosymbol
             coin.fromsymbol == "Ƀ" -> holder.tvSymbols.text = "BTC" + "/" + coin.tosymbol
@@ -46,7 +42,6 @@ class CoinInfoAdapter(private val context: Context) : RecyclerView.Adapter<CoinI
         }
     }
 
-    override fun getItemCount() = coinInfoList.size
 
     inner class CoinIfoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         var imageViewCoin: ImageView = itemView.findViewById(R.id.ivLogoCoin)
