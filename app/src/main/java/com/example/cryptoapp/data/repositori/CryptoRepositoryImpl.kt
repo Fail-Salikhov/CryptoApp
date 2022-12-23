@@ -12,13 +12,17 @@ import com.example.cryptoapp.data.network.workers.RefreshDataWorker
 import com.example.cryptoapp.domain.CoinItem
 import com.example.cryptoapp.domain.CryptoRepository
 import databasw.AppDataBase
+import databasw.CoinInfoDao
 import kotlinx.coroutines.delay
+import javax.inject.Inject
 
-class CryptoRepositoryImpl(private val application: Application) : CryptoRepository {
+class CryptoRepositoryImpl  @Inject constructor (
+    private val coinInfoDao : CoinInfoDao,
+    private val mapper : CoinMapper,
+    private val application: Application
+    ) : CryptoRepository {
 
-    private val coinInfoDao = AppDataBase.getInstance(application).coinPriceInfoDao()
 
-    private val mapper = CoinMapper()
 
 
     override fun getCryptoItemListUseCase(): LiveData<List<CoinItem>> {

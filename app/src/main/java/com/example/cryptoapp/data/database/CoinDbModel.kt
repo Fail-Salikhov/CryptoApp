@@ -2,6 +2,7 @@ package com.example.cryptoapp.data.database
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import javax.inject.Inject
 
 @Entity(tableName = "crypto_item")
 data class CoinDbModel (

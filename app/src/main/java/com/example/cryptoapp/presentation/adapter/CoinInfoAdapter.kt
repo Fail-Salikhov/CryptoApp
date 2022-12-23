@@ -13,9 +13,10 @@ import com.example.cryptoapp.databinding.ActivityMainBinding
 import com.example.cryptoapp.databinding.ItemCoinInfoBinding
 import com.example.cryptoapp.domain.CoinItem
 import com.squareup.picasso.Picasso
+import javax.inject.Inject
 
 
-class CoinInfoAdapter(private val context: Context): ListAdapter<CoinItem, CoinIfoViewHolder>(CoinInfoDiffCallback) {
+class CoinInfoAdapter  (private val context: Context): ListAdapter<CoinItem, CoinIfoViewHolder>(CoinInfoDiffCallback) {
 
 
     var onCoinClickListener: OnCoinClickListener? = null
@@ -28,9 +29,9 @@ class CoinInfoAdapter(private val context: Context): ListAdapter<CoinItem, CoinI
 
     override fun onBindViewHolder(holder: CoinIfoViewHolder, position: Int) {
         val coin = getItem(position)
-        when{
-            coin.fromsymbol == "Ξ" -> holder.binding.tvSymbols.text = "ETH" + "/" + coin.tosymbol
-            coin.fromsymbol == "Ƀ" -> holder.binding.tvSymbols.text = "BTC" + "/" + coin.tosymbol
+        when (coin.fromsymbol) {
+            "Ξ" -> holder.binding.tvSymbols.text = "ETH" + "/" + coin.tosymbol
+            "Ƀ" -> holder.binding.tvSymbols.text = "BTC" + "/" + coin.tosymbol
             else -> holder.binding.tvSymbols.text = coin.fromsymbol + "/" + coin.tosymbol
         }
         val symbolsTemplate = context.resources.getString(R.string.symbols_template)
