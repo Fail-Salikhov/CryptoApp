@@ -1,6 +1,8 @@
 package com.example.cryptoapp.domain
 
-data class CoinItem(
+import javax.inject.Inject
+
+data class CoinItem  (
 
     var fromsymbol: String,
 
