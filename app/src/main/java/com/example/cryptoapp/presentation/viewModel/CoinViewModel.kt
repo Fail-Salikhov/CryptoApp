@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.cryptoapp.addFavorites.data.database.FavoriteCoinDao
 import com.example.cryptoapp.addFavorites.data.database.FavoriteCoinDbModel
 import com.example.cryptoapp.addFavorites.domain.AddToFavoritesUseCase
+import com.example.cryptoapp.addFavorites.domain.DeleteCoinFromFavoriteUseCase
 import com.example.cryptoapp.data.repositori.CryptoRepositoryImpl
 import com.example.cryptoapp.domain.GetCryptoItemListUseCase
 import com.example.cryptoapp.domain.GetCryptoItemUseCase
@@ -21,7 +22,7 @@ class CoinViewModel @Inject constructor(
     private val getCryptoItemListUseCase: GetCryptoItemListUseCase,
     private val loadDataUseCase: LoadDataUseCase,
     private val addToFavoritesUseCase: AddToFavoritesUseCase,
-    private val favoriteCoinDao: FavoriteCoinDao
+    private val deleteFavoriteCoinUseCase: DeleteCoinFromFavoriteUseCase
 ) : ViewModel () {
 
 
@@ -29,9 +30,7 @@ class CoinViewModel @Inject constructor(
         viewModelScope.launch {
            addToFavoritesUseCase(fSym)
         }
-
     }
-
 
     val coinInfoList = getCryptoItemListUseCase()
 

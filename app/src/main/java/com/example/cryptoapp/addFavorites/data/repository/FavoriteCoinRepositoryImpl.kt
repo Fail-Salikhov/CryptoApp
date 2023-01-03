@@ -24,7 +24,7 @@ class FavoriteCoinRepositoryImpl @Inject constructor(
          favoriteCoinDao.addCoinToFavorite(mapper.mapDbModelToFavoriteDb(coinDb))
     }
 
-    override fun deleteCoinFromFavorite(fromSymbol: String) {
+    override suspend fun deleteCoinFromFavorite(fromSymbol: String) {
         favoriteCoinDao.deleteCoinFromFavorite(fromSymbol)
     }
 

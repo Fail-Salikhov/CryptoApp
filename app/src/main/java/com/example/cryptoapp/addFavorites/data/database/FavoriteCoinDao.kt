@@ -21,5 +21,5 @@ interface FavoriteCoinDao {
     fun getPriceInfoAboutCoin (fSym: String) : LiveData<FavoriteCoinDbModel>
 
     @Query("DELETE FROM favorite_coin WHERE fromSymbol=:fSym")
-    fun deleteCoinFromFavorite (fSym: String)
+    suspend fun deleteCoinFromFavorite (fSym: String)
 }

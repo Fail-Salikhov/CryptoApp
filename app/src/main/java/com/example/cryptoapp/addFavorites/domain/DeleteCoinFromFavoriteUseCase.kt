@@ -4,5 +4,5 @@ import javax.inject.Inject
 
 class DeleteCoinFromFavoriteUseCase @Inject constructor(private val favoriteCoinRepository: FavoriteCoinRepository) {
 
-    operator fun invoke (fromSymbol: String) = favoriteCoinRepository.deleteCoinFromFavorite(fromSymbol)
+    suspend operator fun invoke (fromSymbol: String) = favoriteCoinRepository.deleteCoinFromFavorite(fromSymbol)
 }

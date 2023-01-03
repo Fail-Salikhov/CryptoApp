@@ -8,7 +8,7 @@ interface FavoriteCoinRepository {
 
     suspend fun addToFavoriteUseCase (fSym: String)
 
-    fun deleteCoinFromFavorite (fromSymbol: String)
+    suspend fun deleteCoinFromFavorite (fromSymbol: String)
 
     fun getFavoriteCoinListUseCase () : LiveData<List<CoinItem>>
 
