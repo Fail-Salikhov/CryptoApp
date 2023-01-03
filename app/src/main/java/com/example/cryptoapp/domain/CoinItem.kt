@@ -20,4 +20,8 @@ data class CoinItem  (
 
     var imageurl: String
 ) {
+    companion object {
+
+        const val UNDEFINED_FROMSYMBOL = ""
+    }
 }

@@ -50,6 +50,20 @@
         app:layout_constraintTop_toTopOf="@id/tvSlash"
         tools:text="USD" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_add_favorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:contentDescription="@string/favorit_coin_list"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_add"
+        />
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

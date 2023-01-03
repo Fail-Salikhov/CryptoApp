@@ -6,11 +6,42 @@
     android:layout_height="match_parent"
     tools:context=".presentation.CoinPriceListActivity">
 
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCoinPriceList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/buttonFavoriteList"
         tools:listitem="@layout/item_coin_info"/>
+
+    <Button
+        android:id="@+id/buttonFavoriteList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/favorit_coin_list"
+        android:focusable="true"
+        android:clickable="true" />
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/button_add_shop_item"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:layout_marginBottom="16dp"-->
+<!--        android:clickable="true"-->
+<!--        android:contentDescription="@string/favorit_coin_list"-->
+<!--        android:focusable="true"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:srcCompat="@drawable/ic_add"-->
+<!--        />-->
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
