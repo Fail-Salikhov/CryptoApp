@@ -6,7 +6,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.example.cryptoapp.data.database.CoinDbModel
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface FavoriteCoinDao {
@@ -15,7 +15,7 @@ interface FavoriteCoinDao {
     suspend fun addCoinToFavorite (favoriteCoinDbModel: FavoriteCoinDbModel)
 
     @Query("SELECT * FROM favorite_coin ORDER BY lastUpdate")
-    fun getFavoriteCoinList () : LiveData<List<FavoriteCoinDbModel>>
+    fun getFavoriteCoinList () : Flow<List<FavoriteCoinDbModel>>
 
     @Query("DELETE FROM favorite_coin WHERE fromSymbol=:fSym")
     suspend fun deleteCoinFromFavorite (fSym: String)
