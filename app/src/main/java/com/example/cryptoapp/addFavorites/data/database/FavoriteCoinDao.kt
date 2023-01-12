@@ -17,9 +17,9 @@ interface FavoriteCoinDao {
     @Query("SELECT * FROM favorite_coin ORDER BY lastUpdate")
     fun getFavoriteCoinList () : LiveData<List<FavoriteCoinDbModel>>
 
-    @Query("SELECT * FROM favorite_coin WHERE fromsymbol == :fSym LIMIT 1")
-    fun getPriceInfoAboutCoin (fSym: String) : LiveData<FavoriteCoinDbModel>
-
     @Query("DELETE FROM favorite_coin WHERE fromSymbol=:fSym")
     suspend fun deleteCoinFromFavorite (fSym: String)
+
+//    @Query("SELECT * FROM favorite_coin ORDER BY fromSymbol")
+//
 }
