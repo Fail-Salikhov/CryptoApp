@@ -17,6 +17,9 @@ interface CoinInfoDao {
     @Query("SELECT * FROM crypto_item WHERE fromsymbol == :fSym LIMIT 1")
     fun getPriceInfoAboutCoin (fSym: String) : LiveData<CoinDbModel>
 
+    @Query("SELECT * FROM crypto_item WHERE fromsymbol == :fSym LIMIT 1")
+    suspend fun getCoinDbModel (fSym: String) : CoinDbModel
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun  insertPriseList (priceList: List<CoinDbModel>)
 }

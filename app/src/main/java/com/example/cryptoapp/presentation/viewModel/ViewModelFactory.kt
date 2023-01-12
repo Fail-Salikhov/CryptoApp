@@ -1,8 +1,7 @@
-package com.example.cryptoapp.presentation
+package com.example.cryptoapp.presentation.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewmodel.CreationExtras
 import javax.inject.Inject
 import javax.inject.Provider
 

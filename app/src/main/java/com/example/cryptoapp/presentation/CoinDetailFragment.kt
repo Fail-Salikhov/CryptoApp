@@ -1,19 +1,16 @@
 package com.example.cryptoapp.presentation
 
-import android.app.Activity
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.cryptoapp.CoinDetailActivity
-import com.example.cryptoapp.CoinViewModel
-import com.example.cryptoapp.databinding.ActivityCoinDetailBinding
+import com.example.cryptoapp.presentation.viewModel.CoinViewModel
 import com.example.cryptoapp.databinding.FragmentCoinDetailBinding
+import com.example.cryptoapp.presentation.viewModel.ViewModelFactory
 import com.squareup.picasso.Picasso
 import javax.inject.Inject
 
@@ -61,6 +58,10 @@ class CoinDetailFragment : Fragment() {
                 tvToSymbol.text = it.tosymbol
                 Picasso.get().load(it.imageurl).into(ivLogoCoin)
             }
+        }
+        binding.buttonAddFavorite.setOnClickListener {
+            viewModel.addToFavoriteList(fromSymbol)
+            Toast.makeText(requireContext(), "Монета $fromSymbol добавлена  в избранное", Toast.LENGTH_SHORT).show()
         }
     }
 
