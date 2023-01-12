@@ -1,19 +1,16 @@
 package com.example.cryptoapp.addFavorites.data.repository
 
 import android.app.Application
-import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Transformations
 import com.example.cryptoapp.addFavorites.data.database.FavoriteCoinDao
-import com.example.cryptoapp.addFavorites.data.database.FavoriteCoinDbModel
 import com.example.cryptoapp.addFavorites.domain.FavoriteCoinRepository
 import com.example.cryptoapp.data.mapper.CoinMapper
 import com.example.cryptoapp.domain.CoinItem
 import databasw.CoinInfoDao
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class FavoriteCoinRepositoryImpl @Inject constructor(
-    private val application: Application,
     private val favoriteCoinDao: FavoriteCoinDao,
     private val mapper : CoinMapper,
     private val coinInfoDao : CoinInfoDao,
@@ -28,9 +25,9 @@ class FavoriteCoinRepositoryImpl @Inject constructor(
         favoriteCoinDao.deleteCoinFromFavorite(fromSymbol)
     }
 
-    override fun getFavoriteCoinListUseCase(): LiveData<List<CoinItem>> {
-        return Transformations.map(favoriteCoinDao.getFavoriteCoinList()){
-            it.map { it ->
+    override fun getFavoriteCoinListUseCase(): Flow<List<CoinItem>> {
+        return favoriteCoinDao.getFavoriteCoinList().map {
+            it.map {
                 mapper.mapFavoriteDbModelToEntity(it)
             }
         }
