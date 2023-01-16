@@ -1,17 +1,15 @@
 package com.example.cryptoapp.data.repositori
 
 import android.app.Application
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Transformations
 import androidx.work.ExistingWorkPolicy
 import androidx.work.WorkManager
 import com.example.cryptoapp.data.mapper.CoinMapper
 import com.example.cryptoapp.data.network.workers.RefreshDataWorker
 import com.example.cryptoapp.domain.CoinItem
 import com.example.cryptoapp.domain.CryptoRepository
-import databasw.AppDataBase
 import databasw.CoinInfoDao
-import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class CryptoRepositoryImpl  @Inject constructor (
@@ -23,8 +21,8 @@ class CryptoRepositoryImpl  @Inject constructor (
 
 
 
-    override fun getCryptoItemListUseCase(): LiveData<List<CoinItem>> {
-       return Transformations.map(coinInfoDao.getPriceList()){
+    override fun getCryptoItemListUseCase(): Flow<List<CoinItem>> {
+       return coinInfoDao.getPriceList().map{
            it.map {
                mapper.mapDbModelToEntity(it)
            }
@@ -32,8 +30,8 @@ class CryptoRepositoryImpl  @Inject constructor (
     }
 
 
-    override fun getCryptoItem(fromSymbol: String): LiveData<CoinItem> {
-        return Transformations.map(coinInfoDao.getPriceInfoAboutCoin(fromSymbol)){
+    override fun getCryptoItem(fromSymbol: String): Flow<CoinItem> {
+        return coinInfoDao.getPriceInfoAboutCoin(fromSymbol).map{
             mapper.mapDbModelToEntity(it)
         }
     }

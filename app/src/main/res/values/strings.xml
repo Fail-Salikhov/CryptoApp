@@ -9,4 +9,14 @@
     <string name="last_market_label">Последняя сделка:</string>
     <string name="last_updated_label">Обновлено:</string>
     <string name="favorit_coin_list">Список избраных монет</string>
+
+    <!-- Menu drawer strings -->
+    <string name="cat_section">Раздел</string>
+    <string name="section_favorite_coin_list">Список избраных монет</string>
+    <string name="section_top_coin_list">Топ писок монет</string>
+    <string name="section_find_coin">Найти монету</string>
+    <string name="cat_account">Аккаунт</string>
+    <string name="acc_sign_up">Регистрация</string>
+    <string name="acc_sign_in">Вход</string>
+    <string name="acc_sign_out">Выход</string>
 </resources>

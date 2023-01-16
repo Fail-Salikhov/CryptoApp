@@ -1,12 +1,13 @@
 package com.example.cryptoapp.domain
 
-import androidx.lifecycle.LiveData
+
+import kotlinx.coroutines.flow.Flow
 
 interface CryptoRepository {
 
-    fun getCryptoItemListUseCase () : LiveData<List<CoinItem>>
+    fun getCryptoItemListUseCase () : Flow<List<CoinItem>>
 
-    fun getCryptoItem (fromSymbol: String) : LiveData<CoinItem>
+    fun getCryptoItem (fromSymbol: String) : Flow<CoinItem>
 
     fun loadData()
 }

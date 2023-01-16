@@ -17,7 +17,7 @@ class FavoriteCoinViewModel @Inject constructor(
 
     val favoriteCoinList = getFavoriteCoinListUseCase().asLiveData()
 
-    fun getCryptoItemUseCse (fSym: String) = getCryptoItemUseCase(fSym)
+//    fun getCryptoItemUseCse (fSym: String) = getCryptoItemUseCase(fSym).asLiveData()
 
     fun deleteFavoriteCoin (fromSymbol: String) {
         viewModelScope.launch {

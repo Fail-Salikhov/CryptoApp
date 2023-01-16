@@ -13,11 +13,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.CryptoApp"
+        android:theme="@style/Theme.NoActionBar"
         tools:targetApi="31">
         <activity android:name=".CoinDetailActivity" />
+        <activity android:name=".presentation.CoinPriceListActivity" />
         <activity
-            android:name=".presentation.CoinPriceListActivity"
+            android:name=".presentation.MenuActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,21 +1,20 @@
 package databasw
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.cryptoapp.data.database.CoinDbModel
-import pojo.CoinInfoDto
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface CoinInfoDao {
 
     @Query("SELECT * FROM crypto_item ORDER BY lastupdate")
-    fun getPriceList (): LiveData<List<CoinDbModel>>
+    fun getPriceList (): Flow<List<CoinDbModel>>
 
     @Query("SELECT * FROM crypto_item WHERE fromsymbol == :fSym LIMIT 1")
-    fun getPriceInfoAboutCoin (fSym: String) : LiveData<CoinDbModel>
+    fun getPriceInfoAboutCoin (fSym: String) : Flow<CoinDbModel>
 
     @Query("SELECT * FROM crypto_item WHERE fromsymbol == :fSym LIMIT 1")
     suspend fun getCoinDbModel (fSym: String) : CoinDbModel

@@ -1,28 +1,20 @@
 package com.example.cryptoapp.presentation.viewModel
 
-import android.app.Application
-import android.util.Log
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.example.cryptoapp.addFavorites.data.database.FavoriteCoinDao
-import com.example.cryptoapp.addFavorites.data.database.FavoriteCoinDbModel
+
+import androidx.lifecycle.*
 import com.example.cryptoapp.addFavorites.domain.AddToFavoritesUseCase
-import com.example.cryptoapp.addFavorites.domain.DeleteCoinFromFavoriteUseCase
-import com.example.cryptoapp.data.repositori.CryptoRepositoryImpl
 import com.example.cryptoapp.domain.GetCryptoItemListUseCase
 import com.example.cryptoapp.domain.GetCryptoItemUseCase
 import com.example.cryptoapp.domain.LoadDataUseCase
 import kotlinx.coroutines.launch
+import androidx.lifecycle.asLiveData
 import javax.inject.Inject
 
 class CoinViewModel @Inject constructor(
     private val getCryptoItemUseCase: GetCryptoItemUseCase,
     private val getCryptoItemListUseCase: GetCryptoItemListUseCase,
     private val loadDataUseCase: LoadDataUseCase,
-    private val addToFavoritesUseCase: AddToFavoritesUseCase,
-    private val deleteFavoriteCoinUseCase: DeleteCoinFromFavoriteUseCase
+    private val addToFavoritesUseCase: AddToFavoritesUseCase
 ) : ViewModel () {
 
 
@@ -32,9 +24,9 @@ class CoinViewModel @Inject constructor(
         }
     }
 
-    val coinInfoList = getCryptoItemListUseCase()
+    val coinInfoList = getCryptoItemListUseCase().asLiveData()
 
-    fun getDetailInfo(fSym: String) = getCryptoItemUseCase(fSym)
+    fun getDetailInfo(fSym: String) = getCryptoItemUseCase(fSym).asLiveData()
 
     init {
         loadDataUseCase()

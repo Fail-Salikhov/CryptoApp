@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item android:title="@string/cat_account">
+        <menu>
+            <item
+                android:title="@string/section_favorite_coin_list"
+                android:id="@+id/menu_favorite_coin_list"
+                />
+            <item
+                android:title="@string/section_top_coin_list"
+                android:id="@+id/menu_top_coin_list"
+                />
+            <item
+                android:title="@string/section_find_coin"
+                android:id="@+id/menu_find_coin"
+                />
+        </menu>
+    </item>
+    <item android:title="@string/cat_account">
+        <menu>
+            <item
+                android:title="@string/acc_sign_up"
+                android:id="@+id/menu__sign_up"
+                />
+            <item
+                android:title="@string/acc_sign_in"
+                android:id="@+id/menu_sign_in"
+                />
+            <item
+                android:title="@string/acc_sign_out"
+                android:id="@+id/menu_sign_out"
+                />
+        </menu>
+    </item>
+
+</menu>

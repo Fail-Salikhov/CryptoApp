@@ -1,6 +1,5 @@
 package com.example.cryptoapp.domain
 
-import javax.inject.Inject
 
 data class CoinItem  (
 
